@@ -100,6 +100,30 @@ plt.legend(loc="upper right")
 plt.savefig("plot.png")
 
 
+#calculate accuracy
+masks_correct = 0
+no_mask_correct = 0
+no_mask__mask = 0
+mask__no_mask = 0
 
-
-
+length = len(predictions)
+for i in range (length):
+    pred = int(round(predictions[i,0]))
+    if y_test[i] == pred:
+        if y_test[i] == 1:
+            masks_correct += 1
+        else:
+            no_mask_correct += 1
+    else:
+        if y_test[i] == 1:
+            mask__no_mask += 1
+        else:
+            no_mask__mask += 1
+            
+print ("masks_correct = "+str(masks_correct))
+print ("no_mask_correct = "+str(no_mask_correct))
+print ("no_mask__mask = "+str(no_mask__mask))
+print ("mask__no_mask = "+str(mask__no_mask))
+accuracy = (masks_correct+no_mask_correct)/(length)
+print ('\n')
+print ("accuracy = "+str(accuracy))
