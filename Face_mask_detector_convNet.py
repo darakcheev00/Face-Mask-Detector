@@ -127,8 +127,3 @@ print ("mask__no_mask = "+str(mask__no_mask))
 accuracy = (masks_correct+no_mask_correct)/(length)
 print ('\n')
 print ("accuracy = "+str(accuracy))
-
-
-
-
-
